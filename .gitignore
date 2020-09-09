@@ -4,5 +4,9 @@ dist/
 tmp/*
 !tmp/.gitkeep
 
-# Jest
+# JEST
 coverage/
+
+# FILES
+.env
+ormconfig.json
