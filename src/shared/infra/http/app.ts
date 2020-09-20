@@ -4,6 +4,7 @@ import 'dotenv/config';
 import express, { Request, Response, NextFunction } from 'express';
 import 'express-async-errors';
 import cors from 'cors';
+import http from 'http';
 
 import '@shared/infra/typeorm';
 
@@ -11,6 +12,7 @@ import { AppError } from '@shared/errors/AppError';
 import { routes } from '@shared/infra/http/routes';
 
 const app = express();
+const server = http.createServer(app);
 
 app.use(express.json());
 app.use(cors());
@@ -32,4 +34,4 @@ app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   });
 });
 
-export { app };
+export { app, server };
